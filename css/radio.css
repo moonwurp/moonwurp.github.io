@@ -1,0 +1,213 @@
+/* Genel Ayarlar */
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.allow-select {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.7;
+    filter: blur(5px);
+    transform: scale(0.95);
+    border-radius: 20px;
+}
+
+.version-info {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.version-card {
+    position: relative;
+    color: transparent;
+    background: linear-gradient(to right, rgb(255, 17, 76), rgb(34, 255, 63), rgb(173, 58, 255), rgb(51, 255, 228));
+    -webkit-background-clip: text;
+    background-clip: text;
+    padding: 5px 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    font-size: 18px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.version-card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.version-card .fa {
+    color: transparent;
+    background: linear-gradient(to right, rgb(255, 17, 76), rgb(34, 255, 63), rgb(173, 58, 255), rgb(51, 255, 228));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Müzik Çalar */
+.music-player {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(68, 1, 145, 0.788);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+}
+
+.music-player audio {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#song-list {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Çoklu satır desteği */
+    gap: 10px;
+}
+
+.song {
+    width: calc(50% - 90px); /* İki sütun ve boşluk ayarı */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: rgba(255, 255, 255, 0.05); /* Arka plan ekleme */
+    border-radius: 5px; /* Köşeleri yuvarlama */
+}
+
+.song:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.song-title {
+    flex: 1;
+    padding-right: 10px;
+    color: #ffffff;
+}
+
+.play-icon {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* SVG Animasyonu */
+#animated-svg {
+    position: absolute;
+    top: 50px; /* İstenilen yüksekliğe göre ayarlayabilirsiniz */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 600px;
+    height: auto;
+    font-weight: bold;
+}
+
+#animated-svg text {
+    font-size: 20px;
+}
+
+#animated-svg #wavePath {
+    mask: url(#mask);
+}
+
+#animated-svg #wavePath {
+    fill: url(#gradient);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #000000; /* Scrollbar arka plan rengi */
+}
+
+/* Handle (yani scrollbar içindeki kaydırma çubuğu) */
+::-webkit-scrollbar-thumb {
+    background-color: #721DEF; /* Scrollbar içindeki renk */
+    border-radius: 5px; /* Kenar yuvarlama */
+}
+
+@media (max-width: 768px) {
+    .music-player {
+        width: 300px;
+    }
+
+    #song-list {
+        justify-content: center; /* Mobilde ortalanmış görünüm */
+    }
+
+    .song {
+        width: calc(50% - 45px); /* Mobilde iki sütun */
+    }
+
+    .version-info {
+        bottom: 80px;
+    }
+
+    .version-card {
+        font-size: 14px;
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 10px; /* yukarıya çıkart */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; /* Genişliği ayarla */
+    background-color: rgba(31, 31, 31, 0.8);
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1000; /* Öne çıkar */
+    backdrop-filter: blur(10px); /* Blur efekti ekle */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Gölge efekti ekle */
+}
+
+footer p {
+    margin: 0;
+    color: #ffffff;
+}
